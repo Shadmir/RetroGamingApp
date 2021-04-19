@@ -1,0 +1,11 @@
+C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\bin\Debug\RetroGamingApp.exe.config
+C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\bin\Debug\RetroGamingApp.exe
+C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\bin\Debug\RetroGamingApp.pdb
+C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.csprojAssemblyReference.cache
+C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.Login.resources
+C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.Properties.Resources.resources
+C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.csproj.GenerateResource.cache
+C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.csproj.CoreCompileInputs.cache
+C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.exe
+C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.pdb
+C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.GameSelect.resources
