@@ -9,3 +9,5 @@ C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\Ret
 C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.exe
 C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.pdb
 C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.GameSelect.resources
+C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.Pong.resources
+C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.Register.resources

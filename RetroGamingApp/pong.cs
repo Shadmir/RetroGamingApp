@@ -16,11 +16,15 @@ namespace RetroGamingApp
         bool godown;
         bool cpuUp;
         bool cpuDown;
+        bool cpuMode = true;
         int speed = 5;
         int ballx = 5;
         int bally = 5;
         int score = 0;
         int cpuPoint = 0;
+        int randx = 0;
+        int randy = 0;
+        Random random = new Random();
 
         public Pong()
         {
@@ -42,13 +46,26 @@ namespace RetroGamingApp
             {
                 goup = true;
             }
-            if (e.KeyCode == Keys.Down)
+            if (cpuMode == false)
             {
-                cpuDown = true;
+                if (e.KeyCode == Keys.Down)
+                {
+                    cpuDown = true;
+                }
+                if (e.KeyCode == Keys.Up)
+                {
+                    cpuUp = true;
+                }
             }
-            if (e.KeyCode == Keys.Up)
+            if (e.KeyCode == Keys.G)
             {
-                cpuUp = true;
+                if (cpuMode == true)
+                {
+                    cpuMode = false;
+                } else
+                {
+                    cpuMode = true;
+                }
             }
         }
 
@@ -62,13 +79,16 @@ namespace RetroGamingApp
             {
                 goup = false;
             }
-            if (e.KeyCode == Keys.Down)
+            if (cpuMode == false)
             {
-                cpuDown = false;
-            }
-            if (e.KeyCode == Keys.Up)
-            {
-                cpuUp = false;
+                if (e.KeyCode == Keys.Down)
+                {
+                    cpuDown = false;
+                }
+                if (e.KeyCode == Keys.Up)
+                {
+                    cpuUp = false;
+                }
             }
         }
 
@@ -78,19 +98,22 @@ namespace RetroGamingApp
             cpuLabel.Text = "" + cpuPoint;
             ball.Top -= bally;
             ball.Left -= ballx;
-            /*
-            if (score < 5)
+            if (cpuMode == true)
             {
-                if (cpu.Top < 0 || cpu.Top > 455)
+                cpu.Top += speed;
+                if (score < 5)
                 {
-                    speed = -speed;
+                    if (cpu.Top < 0 || cpu.Top > 455)
+                    {
+                        speed = -speed;
+                    }
                 }
+                else
+                {
+                    cpu.Top = ball.Top - 30;
+                }
+                
             }
-            else
-            {
-                cpu.Top = ball.Top - 30;
-            }
-            */
             if (ball.Left < 0)
             {
                 ball.Left = 434;
@@ -114,10 +137,18 @@ namespace RetroGamingApp
                 if (ballx < 0)
                 {
                     ballx--;
+                    randx = random.Next(6) - 3;
+                    randy = random.Next(6) - 3;
+                    ballx += randx;
+                    bally += randy;
                 }
                 else
                 {
                     ballx++;
+                    randx = random.Next(6) - 3;
+                    randy = random.Next(6) - 3;
+                    ballx += randx;
+                    bally += randy;
                 }
                 ballx = -ballx;
                 speed++;
@@ -130,13 +161,16 @@ namespace RetroGamingApp
             {
                 player.Top += 8;
             }
-            if (cpuUp == true && cpu.Top > 0)
+            if (cpuMode == false)
             {
-                cpu.Top -= 8;
-            }
-            if (cpuDown == true && cpu.Top < 455)
-            {
-                cpu.Top += 8;
+                if (cpuUp == true && cpu.Top > 0)
+                {
+                    cpu.Top -= 8;
+                }
+                if (cpuDown == true && cpu.Top < 455)
+                {
+                    cpu.Top += 8;
+                }
             }
             if (score > 10)
             {
