@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace RetroGamingApp
 {
-    public partial class pong : Form
+    public partial class Pong : Form
     {
         bool goup;
         bool godown;
@@ -22,7 +22,7 @@ namespace RetroGamingApp
         int score = 0;
         int cpuPoint = 0;
 
-        public pong()
+        public Pong()
         {
             InitializeComponent();
         }

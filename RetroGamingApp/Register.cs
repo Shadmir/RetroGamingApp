@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace RetroGamingApp
 {
-    public partial class GameSelect : Form
+    public partial class Register : Form
     {
-        public GameSelect()
+        public Register()
         {
             InitializeComponent();
-        }
-        Pong pongGame = new Pong();
-
-        private void pongButton_Click(object sender, EventArgs e)
-        {
-            pongGame.Show();
         }
     }
 }

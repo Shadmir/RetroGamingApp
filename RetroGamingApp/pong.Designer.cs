@@ -1,6 +1,6 @@
 ﻿namespace RetroGamingApp
 {
-    partial class pong
+    partial class Pong
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pong));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pong));
             this.player = new System.Windows.Forms.PictureBox();
             this.cpu = new System.Windows.Forms.PictureBox();
             this.ball = new System.Windows.Forms.PictureBox();
@@ -107,7 +107,7 @@
             this.startGameLabel.TabIndex = 5;
             this.startGameLabel.Text = "Press [enter] to start!";
             // 
-            // pong
+            // Pong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -123,7 +123,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "pong";
+            this.Name = "Pong";
             this.ShowInTaskbar = false;
             this.Text = "Pong Game";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Keyisdown);
