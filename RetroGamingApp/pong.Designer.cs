@@ -37,6 +37,8 @@
             this.playerScore = new System.Windows.Forms.Label();
             this.cpuLabel = new System.Windows.Forms.Label();
             this.startGameLabel = new System.Windows.Forms.Label();
+            this.infoLabel = new System.Windows.Forms.Label();
+            this.backPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
@@ -107,18 +109,39 @@
             this.startGameLabel.TabIndex = 5;
             this.startGameLabel.Text = "Press [enter] to start!";
             // 
+            // infoLabel
+            // 
+            this.infoLabel.AutoSize = true;
+            this.infoLabel.BackColor = System.Drawing.Color.Transparent;
+            this.infoLabel.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infoLabel.ForeColor = System.Drawing.Color.White;
+            this.infoLabel.Location = new System.Drawing.Point(232, 17);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(450, 19);
+            this.infoLabel.TabIndex = 6;
+            this.infoLabel.Text = "Press [G] to switch between 1-Player and 2-Player";
+            // 
+            // backPanel
+            // 
+            this.backPanel.Location = new System.Drawing.Point(0, 0);
+            this.backPanel.Name = "backPanel";
+            this.backPanel.Size = new System.Drawing.Size(987, 711);
+            this.backPanel.TabIndex = 7;
+            // 
             // Pong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(928, 574);
+            this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.ball);
             this.Controls.Add(this.startGameLabel);
             this.Controls.Add(this.cpuLabel);
             this.Controls.Add(this.playerScore);
             this.Controls.Add(this.cpu);
             this.Controls.Add(this.player);
+            this.Controls.Add(this.backPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -145,5 +168,7 @@
         private System.Windows.Forms.Label playerScore;
         private System.Windows.Forms.Label cpuLabel;
         private System.Windows.Forms.Label startGameLabel;
+        private System.Windows.Forms.Label infoLabel;
+        private System.Windows.Forms.Panel backPanel;
     }
 }

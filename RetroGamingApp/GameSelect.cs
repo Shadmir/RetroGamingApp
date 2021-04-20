@@ -21,6 +21,7 @@ namespace RetroGamingApp
         private void pongButton_Click(object sender, EventArgs e)
         {
             pongGame.Show();
+            this.DestroyHandle();
         }
     }
 }

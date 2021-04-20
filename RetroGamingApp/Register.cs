@@ -16,5 +16,23 @@ namespace RetroGamingApp
         {
             InitializeComponent();
         }
+
+        private void usernameBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passwordBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            usernameBox.Text = "";
+            passwordBox.Text = "";
+            MessageBox.Show("Registered!");
+            this.DestroyHandle();
+        }
     }
 }

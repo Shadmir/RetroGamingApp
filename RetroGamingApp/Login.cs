@@ -17,6 +17,7 @@ namespace RetroGamingApp
             InitializeComponent();
         }
         GameSelect gameSelect = new GameSelect();
+        Register register = new Register();
 
         private void Login_Load(object sender, EventArgs e)
         {
@@ -31,6 +32,13 @@ namespace RetroGamingApp
         private void loginButton_Click(object sender, EventArgs e)
         {
             gameSelect.Show();
+            usernameBox.Text = "";
+            passwordBox.Text = "";
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            register.Show();
         }
     }
 }

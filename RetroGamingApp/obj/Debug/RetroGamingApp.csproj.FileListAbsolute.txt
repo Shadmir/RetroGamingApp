@@ -11,3 +11,16 @@ C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\Ret
 C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.GameSelect.resources
 C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.Pong.resources
 C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.Register.resources
+D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\bin\Debug\RetroGamingApp.exe.config
+D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\bin\Debug\RetroGamingApp.exe
+D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\bin\Debug\RetroGamingApp.pdb
+D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.csprojAssemblyReference.cache
+D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.GameSelect.resources
+D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.Login.resources
+D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.Pong.resources
+D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.Properties.Resources.resources
+D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.Register.resources
+D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.csproj.GenerateResource.cache
+D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.csproj.CoreCompileInputs.cache
+D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.exe
+D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.pdb

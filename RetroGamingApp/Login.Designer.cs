@@ -36,8 +36,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.usernameLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.usernameBox = new System.Windows.Forms.TextBox();
+            this.passwordBox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
             this.loginTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -86,14 +86,15 @@
             this.registerButton.TabIndex = 0;
             this.registerButton.Text = "No Account? Click here to register!";
             this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Navy;
             this.tabPage2.Controls.Add(this.passwordLabel);
             this.tabPage2.Controls.Add(this.usernameLabel);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.usernameBox);
+            this.tabPage2.Controls.Add(this.passwordBox);
             this.tabPage2.Controls.Add(this.loginButton);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -122,20 +123,20 @@
             this.usernameLabel.TabIndex = 3;
             this.usernameLabel.Text = "Username:";
             // 
-            // textBox2
+            // usernameBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(7, 27);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 2;
+            this.usernameBox.Location = new System.Drawing.Point(7, 27);
+            this.usernameBox.Name = "usernameBox";
+            this.usernameBox.Size = new System.Drawing.Size(100, 20);
+            this.usernameBox.TabIndex = 2;
             // 
-            // textBox1
+            // passwordBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.passwordBox.Location = new System.Drawing.Point(7, 75);
+            this.passwordBox.Name = "passwordBox";
+            this.passwordBox.PasswordChar = '*';
+            this.passwordBox.Size = new System.Drawing.Size(100, 20);
+            this.passwordBox.TabIndex = 1;
             // 
             // loginButton
             // 
@@ -179,8 +180,8 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Label usernameLabel;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox usernameBox;
+        private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.Button loginButton;
     }
 }

@@ -17,6 +17,7 @@ namespace RetroGamingApp
         bool cpuUp;
         bool cpuDown;
         bool cpuMode = true;
+        bool funmode = false;
         int speed = 5;
         int ballx = 5;
         int bally = 5;
@@ -98,6 +99,10 @@ namespace RetroGamingApp
             cpuLabel.Text = "" + cpuPoint;
             ball.Top -= bally;
             ball.Left -= ballx;
+            if (funmode == true)
+            {
+                backPanel.BackColor = Color.FromArgb(random.Next(255), random.Next(255), random.Next(255));
+            }
             if (cpuMode == true)
             {
                 cpu.Top += speed;
@@ -112,13 +117,13 @@ namespace RetroGamingApp
                 {
                     cpu.Top = ball.Top - 30;
                 }
-                
-            }
+            }   
             if (ball.Left < 0)
             {
                 ball.Left = 434;
                 ballx = -ballx;
                 ballx = -5;
+                bally = random.Next(5) + 1;
                 cpuPoint++;
             }
             if (ball.Left + ball.Width > ClientSize.Width)
@@ -126,6 +131,7 @@ namespace RetroGamingApp
                 ball.Left = 434;
                 ballx = -ballx;
                 ballx = 5;
+                bally = random.Next(5) + 1;
                 score++;
             }
             if (ball.Top < 0 || ball.Height + ball.Top > ClientSize.Height)
@@ -151,7 +157,6 @@ namespace RetroGamingApp
                     bally += randy;
                 }
                 ballx = -ballx;
-                speed++;
             }
             if (goup == true && player.Top > 0)
             {
@@ -171,6 +176,10 @@ namespace RetroGamingApp
                 {
                     cpu.Top += 8;
                 }
+            }
+            if (score == 0 && cpuPoint == 1 && cpuMode == true)
+            {
+                funmode = true;
             }
             if (score > 10)
             {
