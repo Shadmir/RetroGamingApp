@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace RetroGamingApp
@@ -18,6 +19,8 @@ namespace RetroGamingApp
         bool cpuDown;
         bool cpuMode = true;
         bool funmode = false;
+        bool boxDisplayed = false;
+        bool lostFirst = false;
         int speed = 5;
         int ballx = 5;
         int bally = 5;
@@ -99,8 +102,24 @@ namespace RetroGamingApp
             cpuLabel.Text = "" + cpuPoint;
             ball.Top -= bally;
             ball.Left -= ballx;
-            if (funmode == true)
+            if (lostFirst == true && boxDisplayed == false)
             {
+                gameTimer.Stop();
+                boxDisplayed = true;
+                DialogResult dialogResult = MessageBox.Show("You lost the first point! Do you want punishment?", "Epilepsy Warning!", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    funmode = true;
+                    gameTimer.Start();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    funmode = false;
+                    gameTimer.Start();
+                }
+                
+            }
+            if (funmode == true) {
                 backPanel.BackColor = Color.FromArgb(random.Next(255), random.Next(255), random.Next(255));
             }
             if (cpuMode == true)
@@ -179,7 +198,7 @@ namespace RetroGamingApp
             }
             if (score == 0 && cpuPoint == 1 && cpuMode == true)
             {
-                funmode = true;
+                lostFirst = true;
             }
             if (score > 10)
             {
