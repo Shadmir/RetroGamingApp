@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Media;
 using System.Windows.Forms;
 
 namespace RetroGamingApp
@@ -33,6 +34,17 @@ namespace RetroGamingApp
         public Pong()
         {
             InitializeComponent();
+            playStart();
+        }
+        private void playError()
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\Resources\Windows Vista Error Sound.wav");
+            simpleSound.Play();
+        }
+        private void playStart()
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\Resources\Microsoft Windows Vista Startup Sound.wav");
+            simpleSound.Play();
         }
 
         private void Keyisdown(object sender, KeyEventArgs e)
@@ -167,6 +179,7 @@ namespace RetroGamingApp
                     randy = random.Next(6) - 3;
                     ballx += randx;
                     bally += randy;
+                    playError();
                 }
                 else
                 {
