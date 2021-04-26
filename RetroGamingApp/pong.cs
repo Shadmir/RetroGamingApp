@@ -18,6 +18,7 @@ namespace RetroGamingApp
         bool godown;
         bool cpuUp;
         bool cpuDown;
+
         bool cpuMode = true;
         bool funmode = false;
         bool boxDisplayed = false;
@@ -38,12 +39,12 @@ namespace RetroGamingApp
         }
         private void playError()
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\Resources\Windows Vista Error Sound.wav");
+            SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.Windows_Vista_Error_Sound1);
             simpleSound.Play();
         }
         private void playStart()
         {
-            SoundPlayer simpleSound = new SoundPlayer(@"C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\Resources\Microsoft Windows Vista Startup Sound.wav");
+            SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.Microsoft_Windows_Vista_Startup_Sound1);
             simpleSound.Play();
         }
 
