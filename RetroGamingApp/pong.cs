@@ -119,7 +119,8 @@ namespace RetroGamingApp
                 }
                 
             }
-            if (funmode == true) {
+            if (funmode == true) 
+            {
                 backPanel.BackColor = Color.FromArgb(random.Next(255), random.Next(255), random.Next(255));
             }
             if (cpuMode == true)
