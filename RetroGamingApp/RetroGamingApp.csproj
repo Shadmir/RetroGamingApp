@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bullet.cs" />
     <Compile Include="GameSelect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +73,12 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="ZombieGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZombieGame.Designer.cs">
+      <DependentUpon>ZombieGame.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GameSelect.resx">
       <DependentUpon>GameSelect.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +100,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZombieGame.resx">
+      <DependentUpon>ZombieGame.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
