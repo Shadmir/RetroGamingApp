@@ -112,7 +112,22 @@ namespace RetroGamingApp
 
         private void gameEngine(object sender, EventArgs e)
         {
+            if (playerHealth > 1)
+            {
+                healthBar.Value = Convert.ToInt32(playerHealth);
+            } else
+            {
+                player.Image = Properties.Resources.dead;
+                GameTimer.Stop();
+                gameOver = true;
+            }
+            label1.Text = "   Ammo:    " + ammo;
+            label2.Text = "Kills: " + score;
 
+            if (playerHealth < 20)
+            {
+                healthBar.ForeColor = Color.Red;
+            } // add rest of slide 20
         }
     }
 }
