@@ -93,7 +93,15 @@ namespace RetroGamingApp
         }
         private void DropAmmo()
         {
-
+            PictureBox ammo = new PictureBox();
+            ammo.Image = Properties.Resources.ammo_Image;
+            ammo.SizeMode = PictureBoxSizeMode.AutoSize;
+            ammo.Left = (rnd.Next(10, 890));
+            ammo.Top = rnd.Next(50, 600);
+            ammo.Tag = ammo;
+            this.Controls.Add(ammo);
+            ammo.BringToFront();
+            player.BringToFront();
         }
 
         private void shoot (string direct)
@@ -103,7 +111,14 @@ namespace RetroGamingApp
 
         private void makeZombies()
         {
-
+            PictureBox zombie = new PictureBox();
+            zombie.Tag = "zombie";
+            zombie.Image = Properties.Resources.zdown;
+            zombie.Left = rnd.Next(0, 900);
+            zombie.Top = rnd.Next(0, 800);
+            zombie.SizeMode = PictureBoxSizeMode.AutoSize;
+            this.Controls.Add(zombie);
+            player.BringToFront();
         }
         private void ZombieGame_Load(object sender, EventArgs e)
         {
@@ -127,7 +142,88 @@ namespace RetroGamingApp
             if (playerHealth < 20)
             {
                 healthBar.ForeColor = Color.Red;
-            } // add rest of slide 20
+            }
+
+            if (goleft && player.Left > 0)
+            {
+                player.Left -= speed;
+            }
+            if (goright && player.Left + player.Width < 930)
+            {
+                player.Left += speed;
+            }
+            if (goup && player.Top > 60)
+            {
+                player.Top -= speed;
+            }
+            if (godown && player.Top + player.Height < 700)
+            {
+                player.Top += speed;
+            }
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox && x.Tag == "ammo")
+                {
+                    if (((PictureBox)x).Bounds.IntersectsWith(player.Bounds))
+                    {
+                        this.Controls.Remove(((PictureBox)x));
+
+                        ((PictureBox)x).Dispose();
+                        ammo += 5;
+                    }
+                }
+
+                if (x is PictureBox && x.Tag == "bullet")
+                {
+                    if (((PictureBox)x).Left < 1 || ((PictureBox)x).Left > 930 || ((PictureBox)x).Top < 10 || ((PictureBox)x).Top > 700)
+                    {
+                        this.Controls.Remove(((PictureBox)x));
+                        ((PictureBox)x).Dispose();
+                    }
+                }
+                if (x is PictureBox && Tag == "zombie")
+                {
+                    if (((PictureBox)x).Bounds.IntersectsWith(player.Bounds))
+                    {
+                        playerHealth -= 1;
+                    }
+                    if(((PictureBox)x).Left > player.Left)
+                    {
+                        ((PictureBox)x).Left -= zombieSpeed;
+                        ((PictureBox)x).Image = Properties.Resources.zleft;
+                    }
+                    if (((PictureBox)x).Left < player.Left)
+                    {
+                        ((PictureBox)x).Left += zombieSpeed;
+                        ((PictureBox)x).Image = Properties.Resources.zright;
+                    }
+                    if (((PictureBox)x).Top > player.Top)
+                    {
+                        ((PictureBox)x).Top -= zombieSpeed;
+                        ((PictureBox)x).Image = Properties.Resources.zup;
+                    }
+                    if (((PictureBox)x).Top < player.Top)
+                    {
+                        ((PictureBox)x).Top += zombieSpeed;
+                        ((PictureBox)x).Image = Properties.Resources.zdown;
+                    }
+                    foreach (Control j in this.Controls)
+                    {
+                        if((j is PictureBox && Tag == "bullet") && (x is PictureBox && Tag == "zombie"))
+                        {
+                            if (x.Bounds.IntersectsWith(j.Bounds))
+                            {
+                                score++;
+                                this.Controls.Remove(j);
+                                j.Dispose();
+                                this.Controls.Remove(x);
+                                x.Dispose();
+                                makeZombies();
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
