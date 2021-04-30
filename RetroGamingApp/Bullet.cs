@@ -58,7 +58,7 @@ namespace RetroGamingApp
                 tm.Dispose();
                 Bullet.Dispose();
                 tm = null;
-                bullet = null;
+                Bullet = null;
             }
         }
     }

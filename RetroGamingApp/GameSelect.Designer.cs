@@ -39,6 +39,7 @@
             this.retroGamingHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewHighScoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pongButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.GameSelectMenus.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,13 +114,24 @@
             // pongButton
             // 
             this.pongButton.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pongButton.Location = new System.Drawing.Point(12, 27);
+            this.pongButton.Location = new System.Drawing.Point(12, 37);
             this.pongButton.Name = "pongButton";
             this.pongButton.Size = new System.Drawing.Size(228, 188);
             this.pongButton.TabIndex = 1;
             this.pongButton.Text = "Pong!";
             this.pongButton.UseVisualStyleBackColor = true;
             this.pongButton.Click += new System.EventHandler(this.pongButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(286, 37);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(228, 188);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Zombies!";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // GameSelect
             // 
@@ -128,6 +140,7 @@
             this.BackgroundImage = global::RetroGamingApp.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pongButton);
             this.Controls.Add(this.GameSelectMenus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -153,5 +166,6 @@
         private System.Windows.Forms.ToolStripMenuItem retroGamingHistoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewHighScoresToolStripMenuItem;
         private System.Windows.Forms.Button pongButton;
+        private System.Windows.Forms.Button button1;
     }
 }

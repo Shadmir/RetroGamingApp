@@ -17,10 +17,17 @@ namespace RetroGamingApp
             InitializeComponent();
         }
         Pong pongGame = new Pong();
+        ZombieGame zom = new ZombieGame();
 
         private void pongButton_Click(object sender, EventArgs e)
         {
             pongGame.Show();
+            this.DestroyHandle();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            zom.Show();
             this.DestroyHandle();
         }
     }
