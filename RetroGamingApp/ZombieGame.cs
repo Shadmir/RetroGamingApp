@@ -106,7 +106,11 @@ namespace RetroGamingApp
 
         private void shoot (string direct)
         {
-
+            bullet shoot = new bullet();
+            shoot.direction = direct;
+            shoot.bulletLeft = player.Left + (player.Width / 2);
+            shoot.bulletTop = player.Top + (player.Height / 2);
+            shoot.mkBullet(this);
         }
 
         private void makeZombies()
