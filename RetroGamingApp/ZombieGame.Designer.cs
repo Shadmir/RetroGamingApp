@@ -38,6 +38,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.player = new System.Windows.Forms.PictureBox();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            this.gameStartLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -130,8 +131,19 @@
             // 
             // GameTimer
             // 
-            this.GameTimer.Enabled = true;
+            this.GameTimer.Interval = 20;
             this.GameTimer.Tick += new System.EventHandler(this.gameEngine);
+            // 
+            // gameStartLabel
+            // 
+            this.gameStartLabel.AutoSize = true;
+            this.gameStartLabel.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gameStartLabel.ForeColor = System.Drawing.Color.White;
+            this.gameStartLabel.Location = new System.Drawing.Point(192, 275);
+            this.gameStartLabel.Name = "gameStartLabel";
+            this.gameStartLabel.Size = new System.Drawing.Size(593, 37);
+            this.gameStartLabel.TabIndex = 8;
+            this.gameStartLabel.Text = "Press [ENTER] to start the game!";
             // 
             // ZombieGame
             // 
@@ -139,6 +151,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkMagenta;
             this.ClientSize = new System.Drawing.Size(924, 661);
+            this.Controls.Add(this.gameStartLabel);
             this.Controls.Add(this.player);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -150,6 +163,8 @@
             this.Name = "ZombieGame";
             this.Text = "ZombieGame";
             this.Load += new System.EventHandler(this.ZombieGame_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ZombieGame_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ZombieGame_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -170,5 +185,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.Timer GameTimer;
+        private System.Windows.Forms.Label gameStartLabel;
     }
 }

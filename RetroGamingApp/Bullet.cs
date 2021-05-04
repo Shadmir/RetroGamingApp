@@ -49,7 +49,7 @@ namespace RetroGamingApp
             }
             if (direction == "down")
             {
-                Bullet.Left += speed;
+                Bullet.Top += speed;
             }
 
             if (Bullet.Left < 16 || Bullet.Left > 860 || Bullet.Top < 10 || Bullet.Top > 616)

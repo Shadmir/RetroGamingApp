@@ -32,64 +32,11 @@ namespace RetroGamingApp
 
         private void Keyisdown(object sender, KeyEventArgs e)
         {
-            if (gameOver) return;
-
-            if (e.KeyCode == Keys.Left)
-            {
-                goleft = true;
-                facing = "left";
-                player.Image = Properties.Resources.left;
-            }
-            if (e.KeyCode == Keys.Right)
-            {
-                goright = true;
-                facing = "right";
-                player.Image = Properties.Resources.right;
-            }
-            if (e.KeyCode == Keys.Up)
-            {
-                facing = "up";
-                goup = true;
-                player.Image = Properties.Resources.up;
-            }
-            if (e.KeyCode == Keys.Down)
-            {
-                facing = "down";
-                godown = true;
-                player.Image = Properties.Resources.down;
-            }
+            
         }
         private void Keyisup(object sender, KeyEventArgs e)
         {
-            if (gameOver) return;
-
-            if (e.KeyCode == Keys.Left)
-            {
-                goleft = false;
-            }
-            if (e.KeyCode == Keys.Right)
-            {
-                goright = false;
-            }
-            if (e.KeyCode == Keys.Up)
-            {
-                goup = true;
-            }
-            if (e.KeyCode == Keys.Down)
-            {
-                godown = false;
-            }
-            if (e.KeyCode == Keys.Space && ammo > 0)
-            {
-                ammo--;
-                shoot(facing);
-
-                if (ammo < 1)
-                {
-                    DropAmmo();
-                }
-            }
-
+            
         }
         private void DropAmmo()
         {
@@ -98,7 +45,7 @@ namespace RetroGamingApp
             ammo.SizeMode = PictureBoxSizeMode.AutoSize;
             ammo.Left = (rnd.Next(10, 890));
             ammo.Top = rnd.Next(50, 600);
-            ammo.Tag = ammo;
+            ammo.Tag = "ammo";
             this.Controls.Add(ammo);
             ammo.BringToFront();
             player.BringToFront();
@@ -131,6 +78,10 @@ namespace RetroGamingApp
 
         private void gameEngine(object sender, EventArgs e)
         {
+            if (playerHealth > 100)
+            {
+                playerHealth = 100;
+            }
             if (playerHealth > 1)
             {
                 healthBar.Value = Convert.ToInt32(playerHealth);
@@ -140,7 +91,7 @@ namespace RetroGamingApp
                 GameTimer.Stop();
                 gameOver = true;
             }
-            label1.Text = "   Ammo:    " + ammo;
+            label1.Text = "Ammo:    " + ammo;
             label2.Text = "Kills: " + score;
 
             if (playerHealth < 20)
@@ -181,11 +132,11 @@ namespace RetroGamingApp
                 {
                     if (((PictureBox)x).Left < 1 || ((PictureBox)x).Left > 930 || ((PictureBox)x).Top < 10 || ((PictureBox)x).Top > 700)
                     {
-                        this.Controls.Remove(((PictureBox)x));
+                        this.Controls.Remove((PictureBox)x);
                         ((PictureBox)x).Dispose();
                     }
                 }
-                if (x is PictureBox && Tag == "zombie")
+                if (x is PictureBox && x.Tag == "zombie")
                 {
                     if (((PictureBox)x).Bounds.IntersectsWith(player.Bounds))
                     {
@@ -213,20 +164,91 @@ namespace RetroGamingApp
                     }
                     foreach (Control j in this.Controls)
                     {
-                        if((j is PictureBox && Tag == "bullet") && (x is PictureBox && Tag == "zombie"))
+                        if((j is PictureBox && j.Tag == "Bullet") && (x is PictureBox && x.Tag == "zombie"))
                         {
                             if (x.Bounds.IntersectsWith(j.Bounds))
                             {
                                 score++;
+                                playerHealth += 5;
                                 this.Controls.Remove(j);
                                 j.Dispose();
                                 this.Controls.Remove(x);
                                 x.Dispose();
-                                makeZombies();
+                                for (int i = 0; i < rnd.Next(score / 2) + 1; i++)
+                                {
+                                    makeZombies();
+                                }
                             }
                         }
                     }
                 }
+            }
+        }
+
+        private void ZombieGame_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (gameOver) return;
+
+            if (e.KeyCode == Keys.A)
+            {
+                goleft = true;
+                facing = "left";
+                player.Image = Properties.Resources.left;
+            }
+            if (e.KeyCode == Keys.D)
+            {
+                goright = true;
+                facing = "right";
+                player.Image = Properties.Resources.right;
+            }
+            if (e.KeyCode == Keys.W)
+            {
+                facing = "up";
+                goup = true;
+                player.Image = Properties.Resources.up;
+            }
+            if (e.KeyCode == Keys.S)
+            {
+                facing = "down";
+                godown = true;
+                player.Image = Properties.Resources.down;
+            }
+        }
+
+        private void ZombieGame_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (gameOver) return;
+
+            if (e.KeyCode == Keys.A)
+            {
+                goleft = false;
+            }
+            if (e.KeyCode == Keys.D)
+            {
+                goright = false;
+            }
+            if (e.KeyCode == Keys.W)
+            {
+                goup = false;
+            }
+            if (e.KeyCode == Keys.S)
+            {
+                godown = false;
+            }
+            if (e.KeyCode == Keys.Space && ammo > 0)
+            {
+                ammo--;
+                shoot(facing);
+
+                if (ammo < 1)
+                {
+                    DropAmmo();
+                }
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                GameTimer.Enabled = true;
+                gameStartLabel.Visible = false;
             }
         }
     }
