@@ -53,6 +53,27 @@ namespace RetroGamingApp
 
             makeTime();
         }
+        public static Image RotateImage(Image img, float rotationAngle)
+        {
+            //create an empty Bitmap image
+            Bitmap bmp = new Bitmap(img.Width, img.Height);
+            //turn the Bitmap into a Graphics object
+            Graphics gfx = Graphics.FromImage(bmp);
+            //now we set the rotation point to the center of our image
+            gfx.TranslateTransform((float)bmp.Width / 2, (float)bmp.Height / 2);
+            //now rotate the image
+            gfx.RotateTransform(rotationAngle);
+            gfx.TranslateTransform(-(float)bmp.Width / 2, -(float)bmp.Height / 2);
+            //set the InterpolationMode to HighQualityBicubic so to ensure a high
+            //quality image once it is transformed to the specified size
+            gfx.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            //now draw our new image onto the graphics object
+            gfx.DrawImage(img, new Point(0, 0));
+            //dispose of our Graphics object
+            gfx.Dispose();
+            //return the image
+            return bmp;
+        }
 
         private void shoot (string direct)
         {
@@ -177,6 +198,7 @@ namespace RetroGamingApp
                         ((PictureBox)x).Top += zombieSpeed;
                         ((PictureBox)x).Image = Properties.Resources.zdown;
                     }
+                    ((PictureBox)x).Image = RotateImage(Properties.Resources.zup, (float)(360 - ((180 / Math.PI) * (Math.Atan2(((PictureBox)x).Location.X - player.Location.X, ((PictureBox)x).Location.Y - player.Location.Y)))));
                     foreach (Control j in this.Controls)
                     {
                         if ((j is PictureBox && j.Tag == "Bullet") && (x is PictureBox && x.Tag == "zombie"))
@@ -196,19 +218,19 @@ namespace RetroGamingApp
                             }
                         }
                     }
+                }
                 
                 if (x.Tag == "time" && x is PictureBox)
                 {
                     if (((PictureBox)x).Bounds.IntersectsWith(player.Bounds))
                     {
                         zombieSpeed = 0;
-                        this.Controls.Remove(time);
+                       // this.Controls.Remove(time);
                         ((PictureBox)x).Dispose();
                     }
                 }
             }
         }
-    }
 
         private void ZombieGame_KeyDown(object sender, KeyEventArgs e)
         {

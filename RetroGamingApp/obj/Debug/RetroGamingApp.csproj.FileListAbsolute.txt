@@ -25,3 +25,4 @@ D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamin
 D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.exe
 D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.pdb
 C:\Users\david.X201\OneDrive - Bacup & Rawtenstall Grammar School\Retro\Game\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.ZombieGame.resources
+D:\Computing Work 2021\Arcade\RetroGamingApp\RetroGamingApp\obj\Debug\RetroGamingApp.ZombieGame.resources
