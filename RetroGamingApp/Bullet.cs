@@ -35,19 +35,19 @@ namespace RetroGamingApp
 
         public void tm_Tick(object sender, EventArgs e)
         {
-            if (direction == "left")
+            if (direction == "left" || direction == "NW" || direction == "SW")
             {
                 Bullet.Left -= speed;
             }
-            if (direction == "right")
+            if (direction == "right" || direction == "NE" || direction == "SE")
             {
                 Bullet.Left += speed;
             }
-            if (direction == "up")
+            if (direction == "up" || direction == "NW" || direction == "NE")
             {
                 Bullet.Top -= speed;
             }
-            if (direction == "down")
+            if (direction == "down" || direction == "SW" || direction == "SE")
             {
                 Bullet.Top += speed;
             }

@@ -49,6 +49,9 @@ namespace RetroGamingApp
             this.Controls.Add(ammo);
             ammo.BringToFront();
             player.BringToFront();
+
+
+            makeTime();
         }
 
         private void shoot (string direct)
@@ -69,6 +72,18 @@ namespace RetroGamingApp
             zombie.Top = rnd.Next(0, 800);
             zombie.SizeMode = PictureBoxSizeMode.AutoSize;
             this.Controls.Add(zombie);
+            player.BringToFront();
+        }
+
+        private void makeTime()
+        {
+            PictureBox time = new PictureBox();
+            time.Tag = "time";
+            time.Image = Properties.Resources.time_wizard;
+            time.Left = rnd.Next(0, 900);
+            time.Top = rnd.Next(0, 800);
+            time.SizeMode = PictureBoxSizeMode.AutoSize;
+            this.Controls.Add(time);
             player.BringToFront();
         }
         private void ZombieGame_Load(object sender, EventArgs e)
@@ -142,7 +157,7 @@ namespace RetroGamingApp
                     {
                         playerHealth -= 1;
                     }
-                    if(((PictureBox)x).Left > player.Left)
+                    if (((PictureBox)x).Left > player.Left)
                     {
                         ((PictureBox)x).Left -= zombieSpeed;
                         ((PictureBox)x).Image = Properties.Resources.zleft;
@@ -164,7 +179,7 @@ namespace RetroGamingApp
                     }
                     foreach (Control j in this.Controls)
                     {
-                        if((j is PictureBox && j.Tag == "Bullet") && (x is PictureBox && x.Tag == "zombie"))
+                        if ((j is PictureBox && j.Tag == "Bullet") && (x is PictureBox && x.Tag == "zombie"))
                         {
                             if (x.Bounds.IntersectsWith(j.Bounds))
                             {
@@ -181,9 +196,19 @@ namespace RetroGamingApp
                             }
                         }
                     }
+                
+                if (x.Tag == "time" && x is PictureBox)
+                {
+                    if (((PictureBox)x).Bounds.IntersectsWith(player.Bounds))
+                    {
+                        zombieSpeed = 0;
+                        this.Controls.Remove(time);
+                        ((PictureBox)x).Dispose();
+                    }
                 }
             }
         }
+    }
 
         private void ZombieGame_KeyDown(object sender, KeyEventArgs e)
         {
@@ -193,24 +218,53 @@ namespace RetroGamingApp
             {
                 goleft = true;
                 facing = "left";
+                if (godown)
+                {
+                    facing = "SW";
+                } if (goup)
+                {
+                    facing = "NW";
+                }
                 player.Image = Properties.Resources.left;
             }
             if (e.KeyCode == Keys.D)
             {
                 goright = true;
                 facing = "right";
+                if (godown)
+                {
+                    facing = "SE";
+                } if (goup)
+                {
+                    facing = "NE";
+                }
                 player.Image = Properties.Resources.right;
             }
             if (e.KeyCode == Keys.W)
             {
                 facing = "up";
                 goup = true;
+                if (goleft)
+                {
+                    facing = "NW";
+                } if (goright)
+                {
+                    facing = "NE";
+                }
                 player.Image = Properties.Resources.up;
             }
             if (e.KeyCode == Keys.S)
             {
                 facing = "down";
                 godown = true;
+                if (goleft)
+                {
+                    facing = "SW";
+                }
+                if (goright)
+                {
+                    facing = "SE";
+                }
                 player.Image = Properties.Resources.down;
             }
         }
