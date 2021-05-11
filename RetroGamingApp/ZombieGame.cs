@@ -27,12 +27,14 @@ namespace RetroGamingApp
         bool gameOver = false;
         int elapsed = 0;
         int power = 0;
+        int powerChance;
         bool powerup = false;
         Random rnd = new Random();
 
         public ZombieGame()
         {
             InitializeComponent();
+
         }
 
         private void Keyisdown(object sender, KeyEventArgs e)
@@ -54,9 +56,6 @@ namespace RetroGamingApp
             this.Controls.Add(ammo);
             ammo.BringToFront();
             player.BringToFront();
-
-
-            makeTime();
         }
         public static Image RotateImage(Image img, float rotationAngle)
         {
@@ -125,6 +124,11 @@ namespace RetroGamingApp
 
         private void gameEngine(object sender, EventArgs e)
         {
+            powerChance = rnd.Next(1000);
+            if (powerChance == 1)
+            {
+                makeTime();
+            }
             elapsed++;
             if (playerHealth > 100)
             {
@@ -197,7 +201,7 @@ namespace RetroGamingApp
                 {
                     if (((PictureBox)x).Bounds.IntersectsWith(player.Bounds))
                     {
-                        playerHealth -= 1;
+                        playerHealth -= 0;
                     }
                     if (((PictureBox)x).Left > player.Left)
                     {
@@ -232,7 +236,7 @@ namespace RetroGamingApp
                                 j.Dispose();
                                 this.Controls.Remove(x);
                                 x.Dispose();
-                                for (int i = 0; i < rnd.Next(score / 2) + 1; i++)
+                                for (int i = 0; i < rnd.Next(score / 10) + 1; i++)
                                 {
                                     makeZombies();
                                 }
@@ -352,3 +356,4 @@ namespace RetroGamingApp
         }
     }
 }
+//zombie rotation coide by georg blad
