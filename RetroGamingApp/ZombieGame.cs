@@ -6,7 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
+using System.Media;
 
 namespace RetroGamingApp
 {
@@ -23,6 +25,9 @@ namespace RetroGamingApp
         int zombieSpeed = 3;
         int score = 0;
         bool gameOver = false;
+        int elapsed = 0;
+        int power = 0;
+        bool powerup = false;
         Random rnd = new Random();
 
         public ZombieGame()
@@ -75,6 +80,12 @@ namespace RetroGamingApp
             return bmp;
         }
 
+        private void timeWiz()
+        {
+            SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.timewiz);
+            simpleSound.Play();
+        }
+
         private void shoot (string direct)
         {
             bullet shoot = new bullet();
@@ -114,6 +125,7 @@ namespace RetroGamingApp
 
         private void gameEngine(object sender, EventArgs e)
         {
+            elapsed++;
             if (playerHealth > 100)
             {
                 playerHealth = 100;
@@ -129,6 +141,15 @@ namespace RetroGamingApp
             }
             label1.Text = "Ammo:    " + ammo;
             label2.Text = "Kills: " + score;
+            if (power + 200 < elapsed && powerup)
+            {
+                zombieSpeed = 0;
+                powerup = false;
+            }
+            if (powerup == false)
+            {
+                zombieSpeed = 5;
+            }
 
             if (playerHealth < 20)
             {
@@ -225,7 +246,9 @@ namespace RetroGamingApp
                     if (((PictureBox)x).Bounds.IntersectsWith(player.Bounds))
                     {
                         zombieSpeed = 0;
-                       // this.Controls.Remove(time);
+                        power = elapsed;
+                        timeWiz();
+                        powerup = true;
                         ((PictureBox)x).Dispose();
                     }
                 }

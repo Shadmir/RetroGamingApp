@@ -171,5 +171,8 @@
   <ItemGroup>
     <None Include="Resources\time wizard.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timewiz.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

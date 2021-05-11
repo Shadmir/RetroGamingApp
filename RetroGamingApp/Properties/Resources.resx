@@ -20159,6 +20159,9 @@
         8PwwaHzB88Og8QXPCxj9X+BfOY8Mg4pUAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="timewiz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\timewiz.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="time_wizard" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/2wBDAAkGBxMTEhUTExMWExUVFxcYFxgWFRUVGBYYFxcXFxgXFRUa
