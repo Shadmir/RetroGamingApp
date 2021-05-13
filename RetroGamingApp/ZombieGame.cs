@@ -182,7 +182,7 @@ namespace RetroGamingApp
                 {
                     if (((PictureBox)x).Bounds.IntersectsWith(player.Bounds))
                     {
-                        this.Controls.Remove(((PictureBox)x));
+                        Controls.Remove(((PictureBox)x));
 
                         ((PictureBox)x).Dispose();
                         ammo += 5;
@@ -236,7 +236,11 @@ namespace RetroGamingApp
                                 j.Dispose();
                                 this.Controls.Remove(x);
                                 x.Dispose();
-                                for (int i = 0; i < rnd.Next(score / 10) + 1; i++)
+                                if (score % 20 == 0)
+                                {
+                                    makeZombies();
+                                    makeZombies();
+                                } else
                                 {
                                     makeZombies();
                                 }
