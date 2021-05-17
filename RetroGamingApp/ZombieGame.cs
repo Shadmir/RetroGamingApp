@@ -201,7 +201,7 @@ namespace RetroGamingApp
                 {
                     if (((PictureBox)x).Bounds.IntersectsWith(player.Bounds))
                     {
-                        playerHealth -= 0;
+                        playerHealth -= 1;
                     }
                     if (((PictureBox)x).Left > player.Left)
                     {
